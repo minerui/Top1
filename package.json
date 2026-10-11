@@ -1,1 +1,1 @@
-{"name":"wanxiang","private":true,"type":"module","scripts":{"start":"node server.js","build":"node build.mjs"}}
+{"name":"wanxiang","private":true,"type":"module","scripts":{"start":"node server.js","build":"node build.mjs","test":"node --test battle.test.js"}}
