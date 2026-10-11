@@ -2,3 +2,14 @@
 
 /* 四大模块基础框架 */
 body{display:block;background:#f5f4ee}.topbar{padding:24px 5%;display:flex;justify-content:space-between;align-items:center;gap:24px;background:#fdfcf8;border-bottom:1px solid #e3e4d9}.brand{font-family:serif;font-size:30px;letter-spacing:4px}.brand span{display:block;font-family:system-ui;font-size:11px;letter-spacing:2px;color:#939a88;margin-top:8px}.world-field{width:230px}.world-field label{margin:0 0 4px}#world{margin:0;font-size:14px}nav{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0 5%;background:#fdfcf8;border-bottom:1px solid #dce1d4}nav button{border-radius:0;padding:23px 10px;text-align:center;border-bottom:3px solid transparent;display:flex;flex-direction:column;align-items:center;gap:8px}nav button strong{font-family:serif;font-size:25px;font-weight:500;letter-spacing:5px}nav button span{font-size:12px;color:#929987}nav button.active{background:#edf1e6;border-bottom-color:#45634a}nav button.active strong{color:#294c35}main{padding:32px 5%;max-width:1500px}.workspace{min-height:490px;grid-template-columns:290px 1fr}.editor{min-height:480px}#empty{padding:85px 10px}header small{letter-spacing:2px}header p{font-size:15px;margin-bottom:0;color:#718168}h1{margin:10px 0}.tools{margin:26px 0}#nav button:focus-visible{outline-offset:-4px}@media(max-width:760px){.topbar{padding:20px;align-items:flex-start;gap:14px}.brand{font-size:25px;white-space:nowrap}.brand span{font-size:9px;letter-spacing:0}.world-field{width:145px}nav{padding:0;display:grid;overflow:visible}nav button{padding:18px 4px}nav button strong{font-size:22px}nav button span{font-size:10px}main{padding:24px 18px}.workspace{grid-template-columns:1fr}.editor{min-height:430px}#empty{padding:65px 0}.tools input{flex-basis:100%}}
+
+/* 置顶导航与柔和切换 */
+#nav{position:sticky;top:0;z-index:20;padding:0;isolation:isolate;background:rgba(253,252,248,.96);backdrop-filter:blur(12px);box-shadow:0 3px 16px #304a4007;--active-index:0}
+#nav::before{content:"";position:absolute;top:0;bottom:0;left:0;width:25%;background:#edf1e6;border-bottom:3px solid #45634a;transform:translateX(calc(var(--active-index)*100%));transition:transform 340ms cubic-bezier(.22,1,.36,1);z-index:-1;pointer-events:none}
+#nav button{min-width:0;background:transparent;border-bottom-color:transparent;transition:color 200ms ease}
+#nav button.active{background:transparent;border-bottom-color:transparent}
+#nav button strong{transition:color 220ms ease,transform 260ms ease}
+#nav button.active strong{transform:translateY(-2px)}
+#nav button:hover:not(.active){background:#e7edde66}
+#nav button span{transition:color 220ms ease}#nav button.active span{color:#708363}
+@media(prefers-reduced-motion:reduce){#nav::before,#nav button,#nav button strong,#nav button span{transition:none}#nav button.active strong{transform:none}}
